@@ -18,27 +18,28 @@
 		},
 		
 		scroll: function(direction, url) {
-			var self = this;
-			$.get("_partial1.html", function(data) {
-				switch(direction){
-				case "left":
-					$(".row > .item").last().html(data);
-					$(".row > .item").first().html('').insertAfter($(".row > .item").last());
-					break;
-				case "right":
-					$(".row > .item").first().html(data);
-					$(".row > .item").last().html('').insertBefore($(".row > .item").first());
-					break;
-				}
-				
-				self.rePaint();
-				
-				setTimeout(function() {
-					$(".row > .item").first().html("");
-					$(".row > .item").last().html("");
-				}, 1200)
-			})
+			switch(direction){
+			case "left":
+				$(".row > .item").last().html(this.iframeData("_partial1.html"));
+				$(".row > .item").first().html('').insertAfter($(".row > .item").last());
+				break;
+			case "right":
+				$(".row > .item").first().html(this.iframeData("_partial1.html"));
+				$(".row > .item").last().html('').insertBefore($(".row > .item").first());
+				break;
+			}
 			
+			this.rePaint();
+			
+			setTimeout(function() {
+				$(".row > .item").first().html("");
+				$(".row > .item").last().html("");
+			}, 1200)
+			
+		},
+		
+		iframeData: function(url) {
+			return '<iframe frameborder=0 src=' + url +'></iframe>';
 		}
 	};
 	

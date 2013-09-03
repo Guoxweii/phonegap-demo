@@ -8,9 +8,8 @@
 	<script src="demo.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$().ready(function() {
-			$.get("_partial1.html", function(data) {
-				$($(".row > .item").get(1)).html(data);
-			})
+			
+			$($(".row > .item").get(1)).html(iscrollWidget.iframeData("_partial1.html"));
 			
 			var deviceWidth = $("body")[0].scrollWidth;
 			$(".row").css({"width": deviceWidth + "px"});

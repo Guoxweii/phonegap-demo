@@ -38,6 +38,11 @@ body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
 	background: yellow;
 }
 
+.item iframe {
+	width: 100%;
+	min-height: 480px;
+}
+
 .content {
 	width: 100%;
 	min-height: 480px;
