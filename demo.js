@@ -12,8 +12,8 @@
 		rePaint: function() {
 			var self = this;
 			$.each($(".row > .item"), function(index, item){
-				var transform_value = self.scroll_width * (index-1);
-				$(item).css({"-webkit-transform": "translateX(" + transform_value + "px)"});
+				var transform_length = self.scroll_width * (index-1);
+				$(item).css({"-webkit-transform": "translateX(" + transform_length + "px)"});
 			});
 		},
 		
@@ -40,6 +40,30 @@
 		
 		iframeData: function(url) {
 			return '<iframe frameborder=0 src=' + url +'></iframe>';
+		},
+		
+		move: function(direction, url) {
+			switch(direction){
+			case "up":
+				$(".move").html(this.iframeData("_partial2.html"));
+				$(".move").css({"top": window.pageYOffset+window.screen.availHeight});
+				setTimeout(function() {
+					$(".row").hide();
+					// $(".move").css({"top": 0});
+				}, 1200)
+				
+				var transform_length = -window.screen.availHeight;
+				$(".move").css({"-webkit-transform": "translateY(" + transform_length + "px)"});
+				break;
+			case "down":
+				var transform_length = window.screen.availHeight;
+				$(".move").css({"-webkit-transform": "translateY(" + transform_length + "px)"});
+				$(".row").show();
+				setTimeout(function() {
+					$(".move").html('');
+				}, this.duration)
+				break;
+			}
 		}
 	};
 	

@@ -10,8 +10,10 @@
 			$("button").bind("click", function(e) {
 				if ($(this).hasClass("left")) {
 					window.parent.iscrollWidget.scroll("left");
-				} else {
+				} else if ($(this).hasClass("right")) {
 					window.parent.iscrollWidget.scroll("right");
+				} else {
+					window.parent.iscrollWidget.move("up");
 				}
 				
 				event.stopPropagation();
@@ -24,6 +26,7 @@
 	<div class="content">
 		<button class="left" type="button">scroll left</button>
 		<button class="right" type="button">scroll right</button>
+		<button class="up" type="button">scroll up</button>
 	</div>
 </body>
 </html>
