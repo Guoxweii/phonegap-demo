@@ -1,0 +1,10 @@
+<div class="content">
+	<button class="up" type="button">scroll down</button>
+</div>
+<script type="text/javascript">
+	$("button").bind("click", function(e) {
+		window.parent.iscrollWidget.move("down");
+		event.stopPropagation();
+		event.preventDefault();
+	})
+</script>

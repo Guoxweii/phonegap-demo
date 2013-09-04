@@ -1,13 +1,16 @@
 <div class="content">
 	<button class="left" type="button">scroll left</button>
 	<button class="right" type="button">scroll right</button>
+	<button class="up" type="button">scroll up</button>
 </div>
 <script type="text/javascript">
 	$("button").bind("click", function(e) {
 		if ($(this).hasClass("left")) {
 			iscrollWidget.scroll("left");
-		} else {
+		} else if ($(this).hasClass("right")) {
 			iscrollWidget.scroll("right");
+		} else {
+			iscrollWidget.move("up");
 		}
 		
 		event.stopPropagation();

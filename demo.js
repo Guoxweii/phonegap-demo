@@ -39,6 +39,33 @@
 				}, 1200)
 			})
 			
+		},
+		
+		move: function(direction, url) {
+			switch(direction){
+			case "up":
+				$.get("_partial2.html", function(data) {
+					$(".move").html(data);
+					$(".move").css({"top": window.pageYOffset+window.screen.availHeight});
+					setTimeout(function() {
+						$(".row").hide();
+						// $(".move").css({"top": 0});
+					}, 1200)
+					
+					var transform_length = -window.screen.availHeight;
+					$(".move").css({"-webkit-transform": "translateY(" + transform_length + "px)"});
+				})
+				
+				break;
+			case "down":
+				var transform_length = window.screen.availHeight;
+				$(".move").css({"-webkit-transform": "translateY(" + transform_length + "px)"});
+				$(".row").show();
+				setTimeout(function() {
+					// $(".move").hide();
+				}, 400)
+				break;
+			}
 		}
 	};
 	
